@@ -1,11 +1,11 @@
-package com.vboot.util;
+package com.vboot.backend.util;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
-import com.vboot.Interface.Phone;
+import com.vboot.backend.Interface.Phone;
 
 public class PhoneNumberValidator implements ConstraintValidator<Phone, PhoneNumber> {
 

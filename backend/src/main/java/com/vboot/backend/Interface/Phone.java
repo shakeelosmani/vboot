@@ -1,9 +1,9 @@
-package com.vboot.Interface;
+package com.vboot.backend.Interface;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.*;
-import com.vboot.util.PhoneNumberValidator;
+import com.vboot.backend.util.PhoneNumberValidator;
 
 @Documented
 @Constraint(validatedBy = PhoneNumberValidator.class)

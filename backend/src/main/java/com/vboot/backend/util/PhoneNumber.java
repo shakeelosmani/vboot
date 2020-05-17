@@ -1,4 +1,4 @@
-package com.vboot.util;
+package com.vboot.backend.util;
 
 import javax.validation.constraints.NotEmpty;
 

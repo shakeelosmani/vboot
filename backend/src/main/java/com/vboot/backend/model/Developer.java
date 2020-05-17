@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import com.vboot.Interface.Phone;
+import com.vboot.backend.Interface.Phone;
 
 import lombok.Data;
 
