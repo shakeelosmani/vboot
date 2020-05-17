@@ -1,12 +1,19 @@
 package com.vboot.backend.model;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -55,7 +62,21 @@ public class Developer {
 	@Size(min = 4, max = 64, message = "The username shoule be at least 4 charcters long and at max 64 characters long.")
 	private String userName;
 
-	@Column(name = "team_name")
-	@Size(min = 4, max = 64, message = "The username shoule be at least 4 charcters long and at max 64 characters long.")
-	private String teamName;
+	@ManyToMany(
+		fetch = FetchType.LAZY,
+		cascade = {
+			CascadeType.PERSIST,
+			CascadeType.MERGE
+		}
+	)
+	@JoinTable(
+		name = "developer_team", 
+		joinColumns = {
+			@JoinColumn(name = "developer_id")
+		},
+		inverseJoinColumns = {
+			@JoinColumn(name = "team_id")
+		}
+	)
+	private Set<Team> teams = new HashSet<>();
 }
